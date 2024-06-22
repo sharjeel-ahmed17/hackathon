@@ -1,0 +1,131 @@
+
+api
+
+4 catagory
+4 sub_catagory
+4 product
+3 cart
+1 serach
+1 payment
+4 login , sign up , reset password , verify otp
+
+
+api (21)
+
+
+{
+  "_id": "667731fd8b8c165c50e4fad1",
+  "email": "test@example.com",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzczMWZkOGI4YzE2NWM1MGU0ZmFkMSIsImlhdCI6MTcxOTA4NzcyOSwiZXhwIjoxNzIxNjc5NzI5fQ.9eiUZWbrDwOAWfIYxN53kl-baa6jx0MPRZcB4sNkJN0"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Testing your APIs using Postman is a straightforward process. Here's a step-by-step guide on how to test each of the APIs (search, payment, and cart) using Postman:
+
+### Step 1: Install Postman
+First, ensure you have Postman installed. You can download it from [here](https://www.postman.com/downloads/).
+
+### Step 2: Start Your Server
+Make sure your server is running. If it's not, start it by running:
+
+```sh
+node app.js
+```
+
+### Step 3: Test the Search API
+
+1. **Endpoint**: `GET /api/products/search`
+2. **Parameters**: Query parameter `query`
+3. **Example URL**: `http://localhost:5000/api/products/search?query=shirt`
+
+**Steps in Postman**:
+1. Open Postman.
+2. Select `GET` method.
+3. Enter `http://localhost:5000/api/products/search?query=shirt` in the URL field.
+4. Click `Send`.
+5. Check the response to ensure it returns a list of products matching the search query.
+
+### Step 4: Test the Payment API
+
+1. **Endpoint**: `POST /api/payment/create-payment-intent`
+2. **Request Body**: JSON `{ "amount": 5000 }` (for $50.00)
+3. **Example URL**: `http://localhost:5000/api/payment/create-payment-intent`
+
+**Steps in Postman**:
+1. Open Postman.
+2. Select `POST` method.
+3. Enter `http://localhost:5000/api/payment/create-payment-intent` in the URL field.
+4. Go to the `Body` tab, select `raw`, and choose `JSON` from the dropdown.
+5. Enter `{ "amount": 5000 }` in the body.
+6. Click `Send`.
+7. Check the response to ensure it returns a client secret.
+
+### Step 5: Test the Cart API
+
+#### Get Cart
+
+1. **Endpoint**: `GET /api/cart/:userId`
+2. **Example URL**: `http://localhost:5000/api/cart/60d21b4667d0d8992e610c85` (replace with a valid userId)
+
+**Steps in Postman**:
+1. Open Postman.
+2. Select `GET` method.
+3. Enter `http://localhost:5000/api/cart/60d21b4667d0d8992e610c85` in the URL field (replace with a valid userId).
+4. Click `Send`.
+5. Check the response to ensure it returns the user's cart.
+
+#### Add to Cart
+
+1. **Endpoint**: `POST /api/cart/add`
+2. **Request Body**: JSON `{ "userId": "60d21b4667d0d8992e610c85", "productId": "60d21b4967d0d8992e610c87", "quantity": 2 }` (replace with valid IDs)
+3. **Example URL**: `http://localhost:5000/api/cart/add`
+
+**Steps in Postman**:
+1. Open Postman.
+2. Select `POST` method.
+3. Enter `http://localhost:5000/api/cart/add` in the URL field.
+4. Go to the `Body` tab, select `raw`, and choose `JSON` from the dropdown.
+5. Enter `{ "userId": "60d21b4667d0d8992e610c85", "productId": "60d21b4967d0d8992e610c87", "quantity": 2 }` in the body (replace with valid IDs).
+6. Click `Send`.
+7. Check the response to ensure it confirms the product was added to the cart.
+
+#### Remove from Cart
+
+1. **Endpoint**: `POST /api/cart/remove`
+2. **Request Body**: JSON `{ "userId": "60d21b4667d0d8992e610c85", "productId": "60d21b4967d0d8992e610c87" }` (replace with valid IDs)
+3. **Example URL**: `http://localhost:5000/api/cart/remove`
+
+**Steps in Postman**:
+1. Open Postman.
+2. Select `POST` method.
+3. Enter `http://localhost:5000/api/cart/remove` in the URL field.
+4. Go to the `Body` tab, select `raw`, and choose `JSON` from the dropdown.
+5. Enter `{ "userId": "60d21b4667d0d8992e610c85", "productId": "60d21b4967d0d8992e610c87" }` in the body (replace with valid IDs).
+6. Click `Send`.
+7. Check the response to ensure it confirms the product was removed from the cart.
+
+### Additional Tips
+
+1. **Authentication**: If your APIs require authentication, make sure to add the appropriate headers or tokens in the `Authorization` tab in Postman.
+2. **Error Handling**: Check for error messages in the response to ensure your API handles invalid inputs or other errors gracefully.
+3. **Environment Variables**: Use Postman's environment variables feature to manage base URLs and other constants, making it easier to switch between development, staging, and production environments.
+
+### Conclusion
+
+By following these steps, you can effectively test your search, payment, and cart APIs using Postman. This helps ensure your APIs are functioning correctly before integrating them into your frontend application.
