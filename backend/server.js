@@ -9,6 +9,7 @@ const productRoute = require('./src/routes/product.route.js')
 const cartRoutes = require('./src/routes/cart.route.js')
 const paymentRoutes = require('./src/routes/payment2.route.js');
 const authRoutes = require('./src/routes/auth.route.js');
+const otpRoutes = require('./src/routes/otp.route.js');
 
 const app = express();
 const port = 3000;
@@ -31,13 +32,13 @@ const connectDb = async () => {
     }
 }
 connectDb()
-// Category Routes
 app.use("/api/", productRoute);
 app.use('/api/cart', cartRoutes);
 app.use('/api/payment', paymentRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/otp', otpRoutes);
 
-
+// Category Routes
 app.post('/categories', async (req, res) => {
     try {
         const category = new Category(req.body);
