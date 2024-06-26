@@ -1,10 +1,10 @@
 import React from 'react'
-import HomePage from './pages/home.page'
+import Navigation from './navigation/Navigation'
 
 const App = () => {
   return (
     <div>
-      <HomePage />
+      <Navigation />
     </div>
   )
 }

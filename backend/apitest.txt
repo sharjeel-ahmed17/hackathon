@@ -1,0 +1,48 @@
+// catagories
+
+localhost:3000/api/categories/
+localhost:3000/api/categories/getallcatagory
+localhost:3000/api/categories/getsinglecatagory/:id
+localhost:3000/api/categories/updatecatagory/:id
+localhost:3000/api/categories/deletecatagory/:id
+
+// sub catagory
+
+localhost:3000/api/subcategories/
+localhost:3000/api/subcategories/getallsubcatagory
+localhost:3000/api/subcategories/getsinglesubcatagory/:id
+localhost:3000/api/subcategories/updatesubcatagory/:id
+localhost:3000/api/subcategories/deletesubcatagory/:id
+
+
+// product
+
+localhost:3000/api/products/
+localhost:3000/api/products/getallproducts
+localhost:3000/api/products/getsingleproduct/:id
+localhost:3000/api/products/updateproduct/:id
+localhost:3000/api/products/deleteproduct/:id
+
+// search products
+localhost:3000/api/search/product?query=laptop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+user
+categories
+subcatagories
+product
+cart
+payment
+
